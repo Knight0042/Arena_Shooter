@@ -397,12 +397,15 @@ def threaded_client(conn, player):
                             if i == 0:
                                 print('register')
                                 playing = True
+                                players[player][13] = False
                             if i == 1 and player == 0:
                                 map_selection_menu = True
+                                players[player][13] = False
                             if i == 2:
                                 pass
                             if i == 3:
                                 loadout_menu = True
+                                players[player][13] = False
                         i += 1
 
                 while map_selection_menu:
@@ -421,11 +424,14 @@ def threaded_client(conn, player):
                             for key in players[player][19]:
                                 if key == 'esc':
                                     map_selection_menu = False
+                                    players[player][13] = False
+
                             players[player][20] = 7
                             i = 0
                             if players[player][13]:
                                 for s in all_map_menu_sprites:
                                     if s.rect.collidepoint(players[player][21][0], players[player][21][1]):
+                                        players[player][13] = False
                                         map_selection = i
                                     i += 1
                             conn.sendall(
@@ -601,11 +607,13 @@ def threaded_client(conn, player):
                             for key in players[player][19]:
                                 if key == 'esc':
                                     loadout_menu = False
+                                    players[player][13] = False
                             players[player][20] = 8
                             if players[player][13]:
                                 i = 0
                                 for s in all_loudout_menu_sprites:
                                     if s.rect.collidepoint(players[player][21][0], players[player][21][1]):
+                                        players[player][13] = False
                                         if player == 0:
                                             gun_choice1 = i
                                             players[0][7] = i

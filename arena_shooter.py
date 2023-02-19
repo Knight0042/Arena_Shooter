@@ -141,6 +141,8 @@ play_menu_button_main_image = pygame.image.load('play_button_main.png')
 play_menu_button_side_image = pygame.image.load('play_button_side.png')
 
 main_menu_image = pygame.image.load('main_menu_image.png')
+map_menu_image = pygame.image.load('map_menu_image.png')
+gun_menu_image = pygame.image.load('gun_menu_image.png')
 
 
 def dis_update(type):
@@ -571,13 +573,14 @@ def dis_update(type):
         # dis.blit(play_menu_button_main_image, (610, 65))
 
     if type == 2:
-        dis.fill(white)
-        # all_map_menu_sprites.draw(dis)
-        valu = -1
-        for m_button in all_map_menu_sprites:
-            valu += 1
-            img = pygame.transform.scale(background_images[valu], [192*4, 108*4])
-            dis.blit(img, (m_button.rect.x, m_button.rect.y))
+        dis.blit(map_menu_image, [0, 0])
+        # dis.fill(white)
+        # # all_map_menu_sprites.draw(dis)
+        # valu = -1
+        # for m_button in all_map_menu_sprites:
+        #     valu += 1
+        #     img = pygame.transform.scale(background_images[valu], [192*4, 108*4])
+        #     dis.blit(img, (m_button.rect.x, m_button.rect.y))
         valu = -1
         for n in range(0, 2):
             for i in range(0, 2):
@@ -585,21 +588,22 @@ def dis_update(type):
                 if valu == map_selection:
                     pygame.draw.rect(dis, yellow, (150 + 852 * i, 80 + 488 * n, 192 * 4, 108 * 4), 10)
     if type == 3:
-        dis.fill(white)
-        valu = -1
-        for m_button in all_loudout_menu_sprites:
-            valu += 1
-            if valu != 3 and valu != 8 and valu != 7:
-                img = pygame.transform.scale(gun_image_list[valu], [gun_image_list[valu].get_width()*2,
-                                                                    gun_image_list[valu].get_height()*2])
-            else:
-                img = pygame.transform.scale(gun_image_list[valu], [gun_image_list[valu].get_width() * 3,
-                                                                    gun_image_list[valu].get_height() * 3])
-            if valu != 7:
-                dis.blit(img, (m_button.rect.x + 100, m_button.rect.y + 100))
-            else:
-                dis.blit(img, (m_button.rect.x + 100, m_button.rect.y - 125))
-        # all_loudout_menu_sprites.draw(dis)
+        dis.blit(gun_menu_image, [0, 0])
+        # dis.fill(white)
+        # valu = -1
+        # for m_button in all_loudout_menu_sprites:
+        #     valu += 1
+        #     if valu != 3 and valu != 8 and valu != 7:
+        #         img = pygame.transform.scale(gun_image_list[valu], [gun_image_list[valu].get_width()*2,
+        #                                                             gun_image_list[valu].get_height()*2])
+        #     else:
+        #         img = pygame.transform.scale(gun_image_list[valu], [gun_image_list[valu].get_width() * 3,
+        #                                                             gun_image_list[valu].get_height() * 3])
+        #     if valu != 7:
+        #         dis.blit(img, (m_button.rect.x + 100, m_button.rect.y + 100))
+        #     else:
+        #         dis.blit(img, (m_button.rect.x + 100, m_button.rect.y - 125))
+        # # all_loudout_menu_sprites.draw(dis)
         valu = -1
         for n in range(0, 3):
             for i in range(0, 3):

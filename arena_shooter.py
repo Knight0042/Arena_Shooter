@@ -356,7 +356,7 @@ def dis_update(type):
                         dis.blit(gun_img, (player_hitbox.rect.centerx-10 - 25*math.cos(angle) -
                                            (35*math.cos(angle)*gun_state),
                                            player_hitbox.rect.centery - 7 - 134 * math.sin(angle) + 30*math.sin(angle)*gun_state))
-                    if P1_gun_state == 2:
+                    if gun_state == 2:
                         dis.blit(gun_img, (player_hitbox.rect.centerx - 10 - 25*math.cos(angle),
                                            player_hitbox.rect.centery - 7 - 134 * math.sin(angle) + 30 * math.sin(angle)))
 

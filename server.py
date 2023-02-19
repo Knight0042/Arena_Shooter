@@ -100,7 +100,7 @@ class MenuButton(pygame.sprite.Sprite):
         # if type == 4 or type == 5:
         #     explosion_list.add(self)
 
-server = "192.168.1.77"
+server = "Host Ip"
 port = 5555
 
 s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)

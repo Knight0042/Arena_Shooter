@@ -456,7 +456,6 @@ def dis_update(type, p, p2):
         player2_kill_count_message = font3.render(f"Deaths {p2[16]}", False, gray3)
         dis.blit(player2_kill_count_message, (300, 10))
         for box in reload_box_pos_list:
-            print(box)
             dis.blit(reload_box_image, box)
         #
         for bullet_i in bullet_position_list:
@@ -505,6 +504,8 @@ def dis_update(type, p, p2):
                 player_hitbox = p
                 gun_state = p[12]
                 gun_choice = p[7]
+                print(gun_state)
+                print(gun_choice)
             if i == 1:
                 angle = angle2
                 player_hitbox = p2
@@ -544,14 +545,19 @@ def dis_update(type, p, p2):
                                        (5 * math.cos(angle) * gun_state),
                                        player_hitbox[1]+50 - 8 - 125 * math.sin(angle)))
                 elif gun_choice == 5 or gun_choice == 9:
+                    # print("tick")
+
                     gun_img = pygame.transform.flip(rpg_images[gun_state], True, False)
                     gun_img = pygame.transform.rotate(gun_img, math.degrees(angle))
                     if -1 < gun_state < 2:
+                        # print('tick1')
                         dis.blit(gun_img, (player_hitbox[0]+25 - 10 - 25 * math.cos(angle) -
                                            (35 * math.cos(angle) * gun_state),
                                            player_hitbox[1]+50 - 7 - 134 * math.sin(angle) + 30 * math.sin(
                                                angle) * gun_state))
-                    if P1_gun_state == 2:
+                    if gun_state == 2:
+                        # print('tick2')
+                        # print(math.degrees(angle))
                         dis.blit(gun_img, (player_hitbox[0]+25 - 10 - 25 * math.cos(angle),
                                            player_hitbox[1]+50 - 7 - 134 * math.sin(angle) + 30 * math.sin(
                                                angle)))
@@ -667,6 +673,7 @@ def dis_update(type, p, p2):
                                        (5 * math.cos(angle) * gun_state),
                                        player_hitbox[1]+50 - 8))
                 elif gun_choice == 5 or gun_choice == 9:
+                    print('run')
                     gun_img = pygame.transform.flip(rpg_images[gun_state], True, True)
                     gun_img = pygame.transform.rotate(gun_img, math.degrees(angle))
                     if -1 < gun_state < 2:
@@ -677,7 +684,7 @@ def dis_update(type, p, p2):
                     if gun_state == 2:
                         dis.blit(gun_img,
                                  (player_hitbox[0]+25 - 10 + 125 * math.cos(angle) - 30 * math.cos(angle),
-                                  player_hitbox[1]-50 - 7 + 24 * math.sin(angle)))
+                                  player_hitbox[1]+50 - 7 + 24 * math.sin(angle)))
                 elif gun_choice == 6:
                     gun_img = pygame.transform.flip(lmg_images[gun_state], True, True)
                     gun_img = pygame.transform.rotate(gun_img, math.degrees(angle))
@@ -993,7 +1000,7 @@ while run:
     player[18] += 1
     player[19].clear()
     player[20] = player1[20]
-    print(explosion_position_list)
+    # print(explosion_position_list)
     # print(player[17])
     # player2[15] = player2[15]
     # player2 = n.send(player)
@@ -1097,7 +1104,7 @@ while run:
         #                 if not game.p2Went:
         #                     n.send(btn.text)
     timer += 1
-    print(player[20])
+    # print(player[20])
     dis_update(player[20], player1, player2)
 #
 # def menu_screen():

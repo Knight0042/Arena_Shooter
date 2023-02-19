@@ -101,6 +101,8 @@ gun_image_list = [basic_bullet_image, sniper_bullet_image, fireball_image, basic
                   rocket_image, basic_bullet_image, pygame.Surface([0, 0]), energy_ball_image, rocket_image]
 
 main_menu_image = pygame.image.load('main_menu_image.png')
+map_menu_image = pygame.image.load('map_menu_image.png')
+gun_menu_image = pygame.image.load('gun_menu_image.png')
 
 
 def dis_update(type, p, p2):
@@ -755,7 +757,7 @@ def dis_update(type, p, p2):
     if type == 6:
         dis.blit(main_menu_image, [0, 0])
     if type == 7:
-        dis.fill(white)
+        dis.blit(map_menu_image, [0, 0])
         valu = -1
         for n in range(0, 2):
             for i in range(0, 2):
@@ -763,7 +765,8 @@ def dis_update(type, p, p2):
                 if valu == map_selection:
                     pygame.draw.rect(dis, yellow, (150 + 852 * i, 80 + 488 * n, 192 * 4, 108 * 4), 10)
     if type == 8:
-        dis.fill(white)
+        dis.blit(gun_menu_image, [0, 0])
+        # dis.fill(white)
         # valu = -1
         # for m_button in all_loudout_menu_sprites:
         #     valu += 1
